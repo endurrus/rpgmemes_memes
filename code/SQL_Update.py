@@ -1,4 +1,4 @@
-inmport mysql.connector
+import mysql.connector
 
 def create_db_connection():
 	host_name = ""
