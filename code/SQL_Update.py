@@ -32,7 +32,7 @@ def init():
 	connection = create_db_connection()
 		
 	create_database_query = """
-	CREATE TABLE database (
+	CREATE TABLE datafile (
 		user_id INT PRIMARY KEY,
 		max_energy INT,
 		curr_energy INT,
@@ -49,7 +49,7 @@ def init():
 
 def update_energy(): # Update energy
 		update_query = """
-		UPDATE database
+		UPDATE datafile
 		SET curr_energy= max_energy;
 		"""
 		connection = create_db_connection()
@@ -58,7 +58,7 @@ def update_energy(): # Update energy
 
 def update_income(): # Update Income
 		update_query = """
-		UPDATE database
+		UPDATE datafile
 		SET salary_base += salary_inc;
 		"""
 		connection = create_db_connection()
@@ -67,7 +67,7 @@ def update_income(): # Update Income
 def get_field(user_id, field_name): # Read Field
 	get_data_query = f"""
 		SELECT {field_name}
-		FROM database
+		FROM datafile
 		WHERE user_id = {user_id};
 	"""
 	
@@ -89,7 +89,7 @@ def change_field(user_id, field_name, change): # Change Field
 		data = get_field(user_id, field_name)
 		data = data[:change] + '1' + data[change+1:]
 		change_query = f"""
-			UPDATE database
+			UPDATE datafile
 			SET {field_name} = {data}
 			WHERE user_id = {user_id};
 		"""
@@ -99,7 +99,7 @@ def change_field(user_id, field_name, change): # Change Field
 	
 	else:
 		change_query = f"""
-			UPDATE database
+			UPDATE datafile
 			SET {field_name} += {change}
 			WHERE user_id = {user_id};
 		"""
@@ -110,7 +110,7 @@ def change_field(user_id, field_name, change): # Change Field
 def check_user(user_id): #Check if a user exists
 	check_query = f"""
 	SELECT *
-	FROM database
+	FROM datafile
 	WHERE user_id = {user_id};
 	"""
 	
@@ -130,7 +130,7 @@ def check_user(user_id): #Check if a user exists
 	
 def init_user(user_id): # When a new user is created
 	init_user_query = f"""
-	    INSERT INTO database(user_id, max_energy, curr_energy, salary_base, salary_inc, curr_balance, stonks_count, item_num, meme_num)
+	    INSERT INTO datafile(user_id, max_energy, curr_energy, salary_base, salary_inc, curr_balance, stonks_count, item_num, meme_num)
 		VALUES({user_id}, 100, {curr_energy}, 2400, 500, 0, 0, "00000000000", "0000000");
 	"""
 		
