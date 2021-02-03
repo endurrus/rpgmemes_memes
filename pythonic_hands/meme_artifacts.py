@@ -46,6 +46,7 @@ def meme_artifacts(user_id):
     
   elif a == 6:
     change_field(user_id, 'meme_list', 6, '1')
+    # NOT DONE, CHANGE SALARY INCREMENT TO ONCE EVERY 5 DAYS
     
     if y[3] != '1':
       change_field(user_id, 'item_list', 3, '1')
