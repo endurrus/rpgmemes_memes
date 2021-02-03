@@ -54,6 +54,7 @@ def update_energy(): # Update energy
 		"""
 		connection = create_db_connection()
 		execute_query(connection, update_query)
+		print("Energy updated.")
 
 
 def update_income(): # Update Income
@@ -62,7 +63,8 @@ def update_income(): # Update Income
 		SET salary_base = salary_base + salary_inc;
 		"""
 		connection = create_db_connection()
-		execute_query(connection, update_query)		
+		execute_query(connection, update_query)
+		print("Income updated.")
 		
 def get_field(user_id, field_name): # Read Field
 	get_data_query = f"""
