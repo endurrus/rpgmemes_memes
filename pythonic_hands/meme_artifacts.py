@@ -21,18 +21,19 @@ def meme_artifacts(user_id):
     
     elif a == 2:
     change_field(user_id, 'meme_list', 2, '1')
-    change_field(user_id, 'max_energy', 2)
+    change_field(user_id, 'max_energy', get_field(user_id, 'max_energy'))
     change_field(user_id, 'salary_base', get_field(user_id, 'salary_base') * 0.5)
-    print("Eng Chun's CNY snacks")
+    print("Ex Chao Keng")
     
   elif a == 3:
     change_field(user_id, 'meme_list', 3, '1')
     change_field(user_id, 'max_energy', 10)
+    print("Eng Chun's CNY snacks")
     
   elif a == 4:
     change_field(user_id, 'meme_list', 4, '1')
     if y[5] == '1':
-      change_field(user_id, 'item_list', 5, '1')
+      change_field(user_id, 'item_list', 5, '0')
     else:
       change_field(user_id, 'max_energy', 100)
     print('CWC deproved')
