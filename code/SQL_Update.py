@@ -1,3 +1,5 @@
+inmport mysql.connector
+
 def create_db_connection():
 	host_name = ""
 	user_name = ""
