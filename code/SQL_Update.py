@@ -32,15 +32,15 @@ def init():
 		
 	create_database_query = """
 	CREATE TABLE database (
-		user_id INT PRIMARY KEY
-		max_energy INT
-		curr_energy INT
-		salary_base INT
-		salary_inc INT
-		curr_balance INT
-		stonks_count INT
-		item_list VARCHAR(11)
-		meme_list VARCHAR(7)
+		user_id INT PRIMARY KEY,
+		max_energy INT,
+		curr_energy INT,
+		salary_base INT,
+		salary_inc INT,
+		curr_balance INT,
+		stonks_count INT,
+		item_list VARCHAR(11),
+		meme_list VARCHAR(7),
 	);
 	"""
 	execute_query(connection, create_database_query)
@@ -48,7 +48,7 @@ def init():
 def update_energy(): # Update energy
 		update_query = """
 		UPDATE database
-		SET curr_energy = max_energy
+		SET curr_energy= max_energy;
 		"""
 		connection = create_db_connection()
 		execute_query(connection, update_query)
@@ -57,7 +57,7 @@ def update_energy(): # Update energy
 def update_income(): # Update Income
 		update_query = """
 		UPDATE database
-		SET salary_base += salary_inc
+		SET salary_base += salary_inc;
 		"""
 		connection = create_db_connection()
 		execute_query(connection, update_query)		
@@ -89,7 +89,7 @@ def change_field(user_id, field_name, change): # Change Field
 		change_query = f"""
 			UPDATE database
 			SET {field_name} = {data}
-			WHERE user_id = {user_id}
+			WHERE user_id = {user_id};
 		"""
 		connection = create_db_connection()
 		execute_query(connection, change_query)
@@ -99,7 +99,7 @@ def change_field(user_id, field_name, change): # Change Field
 		change_query = f"""
 			UPDATE database
 			SET {field_name} += {change}
-			WHERE user_id = {user_id}
+			WHERE user_id = {user_id};
 		"""
 		connection = create_db_connection()
 		execute_query(connection, change_query)
@@ -109,7 +109,7 @@ def check_user(user_id): #Check if a user exists
 	check_query = f"""
 	SELECT *
 	FROM database
-	WHERE user_id = {user_id}
+	WHERE user_id = {user_id};
 	"""
 	
 	connection = create_db_connection()
