@@ -36,10 +36,11 @@ def stonks(user_id):
 	# Buy stonks code 
 	if input() == buystonk:
 		buy_stonks(user_id, stonk_price, wallet, s)
-
 	# Sell stonks code
-	if input() == sellstonk:
+	elif input() == sellstonk:
 		sell_stonks(user_id, stonk_price, wallet, s)
+	else:
+		print("See you soon!")
 		
 		# javier hands to change in the future, ideally ask for input again
 		# input validity not done, and a "fuck go back" option not done
