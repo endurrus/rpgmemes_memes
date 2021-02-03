@@ -28,8 +28,6 @@ def meme_artifacts(user_id):
   elif a == 3:
     change_field(user_id, 'meme_list', 3, '1')
     change_field(user_id, 'max_energy', 10)
-    change_field(user_id, 'meme_list', a, '1')
-    print('CWC deproved')
     
   elif a == 4:
     change_field(user_id, 'meme_list', 4, '1')
@@ -37,6 +35,7 @@ def meme_artifacts(user_id):
       change_field(user_id, 'item_list', 5, '1')
     else:
       change_field(user_id, 'max_energy', 100)
+    print('CWC deproved')
       
   elif a == 5:
     change_field(user_id, 'meme_list', 5, '1')
@@ -46,7 +45,7 @@ def meme_artifacts(user_id):
     
   elif a == 6:
     change_field(user_id, 'meme_list', 6, '1')
-    # NOT DONE, CHANGE SALARY INCREMENT TO ONCE EVERY 5 DAYS
+
     
     if y[3] != '1':
       change_field(user_id, 'item_list', 3, '1')
