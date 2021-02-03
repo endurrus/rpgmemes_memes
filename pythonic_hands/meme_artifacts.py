@@ -1,11 +1,5 @@
-import math
-
-if __name__ == "__main__":
-  a = input()  
-
 x = get_field(user_id, "meme_list")
 y = get_field(user_id, 'item_list')
-
 d = { 'Meme_Artifact #1' : [500000], 'Meme_Artifact #2' : [250000], 'Meme_Artifact #3' : [100000], 'Meme_Artifact #4' : [15], 'Meme_Artifact #5' : [10000], 'Meme_Artifact #6' : [1], 'Meme_Artifact #7' : [500000]
 }
 
