@@ -50,7 +50,7 @@ def init():
 def update_energy(): # Update energy
 		update_query = """
 		UPDATE datafile
-		SET curr_energy= max_energy;
+		SET curr_energy = max_energy;
 		"""
 		connection = create_db_connection()
 		execute_query(connection, update_query)
@@ -59,7 +59,7 @@ def update_energy(): # Update energy
 def update_income(): # Update Income
 		update_query = """
 		UPDATE datafile
-		SET salary_base += salary_inc;
+		SET salary_base = salary_base + salary_inc;
 		"""
 		connection = create_db_connection()
 		execute_query(connection, update_query)		
@@ -100,7 +100,7 @@ def change_field(user_id, field_name, change): # Change Field
 	else:
 		change_query = f"""
 			UPDATE datafile
-			SET {field_name} += {change}
+			SET {field_name} = {field_name} + {change}
 			WHERE user_id = {user_id};
 		"""
 		connection = create_db_connection()
@@ -130,8 +130,8 @@ def check_user(user_id): #Check if a user exists
 	
 def init_user(user_id): # When a new user is created
 	init_user_query = f"""
-	    INSERT INTO datafile(user_id, max_energy, curr_energy, salary_base, salary_inc, curr_balance, stonks_count, item_num, meme_num)
-		VALUES({user_id}, 100, {curr_energy}, 2400, 500, 0, 0, "00000000000", "0000000");
+	    INSERT INTO datafile(user_id, max_energy, curr_energy, salary_base, salary_inc, curr_balance, stonks_count, item_list, meme_list)
+		VALUES({user_id}, 100, 100, 2400, 500, 0, 0, "00000000000", "0000000");
 	"""
 		
 	connection = create_db_connection()
