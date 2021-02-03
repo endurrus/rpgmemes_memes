@@ -41,7 +41,7 @@ def init():
 		curr_balance INT,
 		stonks_count INT,
 		item_list VARCHAR(11),
-		meme_list VARCHAR(7),
+		meme_list VARCHAR(7)
 	);
 	"""
 	execute_query(connection, create_database_query)
