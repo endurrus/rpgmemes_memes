@@ -30,7 +30,6 @@ def execute_query(connection, query):
 
 def init():
 	connection = create_db_connection()
-	connection.close()
 		
 	create_database_query = """
 	CREATE TABLE database (
@@ -46,6 +45,7 @@ def init():
 	);
 	"""
 	execute_query(connection, create_database_query)
+	connection.close()
 
 def update_energy(): # Update energy
 		update_query = """
