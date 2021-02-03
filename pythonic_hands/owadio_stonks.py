@@ -1,3 +1,27 @@
+def buy_stonks(user_id, stonk_price, wallet, s):
+	print('How many stonks would you like to purchase?')
+	a = input()
+	if a.isdigit() and int(a)*stonk_price <= wallet:
+		print('Are you absolutely sure?')
+		b = input()
+		if b == 'Yes':
+			change_field(user_id, 'stonks_count', (int(a)))
+			change_field(user_id, 'curr_balance', -(int(a)*stonk_price))
+			print(f"Bought {a} stonks at {stonk_price} for a total of {a*stonk_price}.")
+
+def sell_stonks(user_id, stonk_price, wallet, s):
+	print('How many stonks would you like to sell?')
+		a = input()
+		if a.isdigit() and int(a) <= stonks_count:
+			print('Are you absolutely sure?')
+			b = input()
+			if b == 'Yes':
+				change_field(user_id, 'stonks_count', -(int(a)))
+				change_field(user_id, 'curr_balance', (int(a)*stonk_price))
+				print(f"Sold {a} stonks at {stonk_price} for a total of {a*stonk_price}.")
+
+
+
 def stonks(user_id):
 	# Display price of stonks for today comparative to ytd.
 	# Prompt Buy or Sell stonks
@@ -11,28 +35,12 @@ def stonks(user_id):
 	
 	# Buy stonks code 
 	if input() == buystonk:
-	  print('Buy how many?')
-	  a = input()
-	  if a.isdigit() and int(a)*stonk_price <= wallet:
-	    print('Cfm want Buy?')
-	    b = input()
-	    if b == 'Yes':
-	      change_field(user_id, 'stonks_count', (int(a)))
-	      change_field(user_id, 'curr_balance', -(int(a)*int(b)))
-	      print(f"Bought {a} stonks at {stonk_price} for a total of {a*b}.")
+		buy_stonks(user_id, stonk_price, wallet, s)
 
 	# Sell stonks code
 	if input() == sellstonk:
-		print('Sell how many?')
-		a = input()
-		if a.isdigit() and int(a)*stonk_price <= stonks_count:
-			print('Cfm want Sell?')
-			b = input()
-			if b == 'Yes':
-				change_field(user_id, 'stonks_count', -(int(a)))
-				change_field(user_id, 'curr_balance', (int(a)*int(b)))
-				print(f"Sold {a} stonks at {stonk_price} for a total of {a*b}.")
-      
+		sell_stonks(user_id, stonk_price, wallet, s)
+		
 		# javier hands to change in the future, ideally ask for input again
 		# input validity not done, and a "fuck go back" option not done
 stonks()
