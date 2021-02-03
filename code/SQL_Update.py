@@ -86,10 +86,10 @@ def get_field(user_id, field_name): # Read Field
 		
 	connection.close()
 	
-def change_field(user_id, field_name, change): # Change Field
+def change_field(user_id, field_name, change, src='1'): # Change Field
 	if field_name == "item_list" or field_name == "meme_list":
 		data = get_field(user_id, field_name)
-		data = data[:change] + '1' + data[change+1:]
+		data = data[:change] + src + data[change+1:]
 		change_query = f"""
 			UPDATE datafile
 			SET {field_name} = {data}
