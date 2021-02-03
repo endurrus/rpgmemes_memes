@@ -16,9 +16,9 @@ else:
 def wgt_work():
 	# When user clicks "work", the user's curr_energy will be deducted by 60 units, max_energy increased by 100 units and curr_balance doubled.
 	if y >= 60:
-		change(user_id, "curr_energy", (-60 * energy_mult))
-		change(user_id, "max_energy", 1)
-		change(user_id, "curr_balance", (z * x))
+		change_field(user_id, "curr_energy", (-60 * energy_mult))
+		change_field(user_id, "max_energy", 1)
+		change_field(user_id, "curr_balance", (z * x))
 	else:
 		pass
 		# javier handjob
@@ -26,16 +26,11 @@ def wgt_work():
 def wgt_keng():
 	# When user clicks "chao keng", the user's curr_energy will be deducted by 20 units.
 	if y >= 20:
-		change(user_id, "curr_energy", (-20 * energy_mult))
+		change_field(user_id, "curr_energy", (-20 * energy_mult))
+		change_field(user_id, "curr_balance", (z * x))
+
 	else:
 		pass
 		#javier blowblow
 
-
-def main():
-	wgt_work()
-	wgt_keng()
-	
-if__name__ == "__main__":
-	main()
-	
+# All shld work, check integar values if cant, got some negative integars * integars
